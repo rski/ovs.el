@@ -23,6 +23,7 @@
 ;;
 
 ;;; Code:
+(require 'hi-lock)
 
 (defun ovs-hl-table(table-num face)
   "Highlight all table:$table-num and table=$table-num occurrences in a buffer."
