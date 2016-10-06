@@ -33,5 +33,35 @@
   (highlight-regexp (format "table\\(:\\|=\\)%s\\(,\\|$\\)" table-num) face)
   )
 
+(defun ovs-clean-cookie ()
+  (interactive)
+  (ovs-clean-field "cookie")
+  )
+
+(defun ovs-clean-duration ()
+  (interactive)
+  (ovs-clean-field "duration")
+  )
+
+(defun ovs-clean-n_bytes ()
+  (interactive)
+  (ovs-clean-field "n_bytes")
+  )
+
+(defun ovs-clean-field (field)
+  (save-excursion
+    (goto-char (point-min))
+    (while (re-search-forward  (format "%s.*?, " field) nil t)
+      (replace-match ""))
+    )
+  )
+
+(defun ovs-clean-all()
+  (interactive)
+  (ovs-clean-cookie)
+  (ovs-clean-duration)
+  (ovs-clean-n_bytes)
+  )
+
 (provide 'ovs)
 ;;; ovs.el ends here
