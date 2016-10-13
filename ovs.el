@@ -31,6 +31,7 @@
                 (read-number "Table number:")
                 (hi-lock-read-face-name)))
   (highlight-regexp (format "table\\(:\\|=\\)%s\\(,\\|$\\)" table-num) face)
+  (highlight-regexp (format "resubmit\(,%s\)" table-num) face)
   )
 
 (defun ovs-clean-cookie ()
